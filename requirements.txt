@@ -1,0 +1,9 @@
+langchain>=0.1.0
+langchain-groq>=0.1.0
+python-dotenv>=1.0.0
+trimesh>=4.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+gradio>=4.0.0
+tqdm>=4.66.0
+pydantic>=2.0.0
