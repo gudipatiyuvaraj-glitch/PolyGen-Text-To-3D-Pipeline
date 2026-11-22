@@ -1,0 +1,13 @@
+PolyGen 3D Asset Portfolio Sheet: thruster_turbine
+==================================================
+Source Mesh: data/samples/thruster_turbine_LOD1_Mid.obj
+Faces: 2,048
+Vertices: 1,026
+Dimensions (X, Y, Z): [0.999, 0.999, 0.999]
+Watertight Status: True
+
+Render Camera Angles Defined:
+  - ISOMETRIC: Camera at [1.5, 1.5, 1.5]
+  - FRONT_VIEW: Camera at [0.0, 2.0, 0.0]
+  - SIDE_VIEW: Camera at [2.0, 0.0, 0.0]
+  - TOP_VIEW: Camera at [0.0, 0.0, 2.0]
