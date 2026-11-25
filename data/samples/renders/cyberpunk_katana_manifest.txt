@@ -1,9 +1,9 @@
 PolyGen 3D Asset Portfolio Sheet: cyberpunk_katana
 ==================================================
-Source Mesh: data/samples/cyberpunk_katana_LOD1_Mid.obj
+Source Mesh: data/samples/asset_LOD1_Mid.obj
 Faces: 2,048
 Vertices: 1,026
-Dimensions (X, Y, Z): [0.999, 0.999, 0.999]
+Dimensions (X, Y, Z): [1.999, 1.999, 1.999]
 Watertight Status: True
 
 Render Camera Angles Defined:

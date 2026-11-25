@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PolyGen - Mid-Review Presentation Deck</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 40px; display: flex; justify-content: center; align-items: center; min-height: 90vh; }
+    .slide-card { background: #1e293b; border-radius: 16px; padding: 40px 60px; max-width: 900px; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid #334155; }
+    h1 { color: #38bdf8; margin-top: 0; font-size: 32px; border-bottom: 2px solid #38bdf8; padding-bottom: 12px; }
+    h2 { color: #94a3b8; font-size: 20px; font-weight: normal; margin-bottom: 25px; }
+    ul { font-size: 18px; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 16px; }
+    th, td { border: 1px solid #475569; padding: 12px 16px; text-align: left; }
+    th { background: #334155; color: #38bdf8; }
+    .badge { background: #0284c7; color: white; padding: 4px 10px; border-radius: 6px; font-size: 14px; }
+    .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; }
+    button { background: #38bdf8; color: #0f172a; border: none; padding: 12px 24px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+    button:hover { background: #0ea5e9; }
+  </style>
+</head>
+<body>
+  <div class="slide-card">
+    <div id="slide-content"></div>
+    <div class="nav-buttons">
+      <button onclick="prevSlide()">◀ Previous</button>
+      <span id="slide-num" style="align-self: center; color: #94a3b8; font-size: 16px;"></span>
+      <button onclick="nextSlide()">Next ▶</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = [
+      {
+        title: "🔷 PolyGen: Generative Text-to-3D Asset Pipeline",
+        subtitle: "Mid-Term Technical Evaluation | Infotact Solutions Internship (Associate L1 Intern)",
+        html: "<p><strong>Author:</strong> Gudipati Yuvaraj (Associate L1 Intern)</p><p><strong>Domain:</strong> Generative AI</p><p><strong>Project Ref:</strong> ITS/GAI/1304</p><br><p>An autonomous, production-grade Text-to-3D pipeline with automated geometric repair and multi-LOD decimation.</p>"
+      },
+      {
+        title: "Problem Statement & The 'Dirty Mesh' Bottleneck",
+        subtitle: "Why Raw AI 3D Meshes Fail Game Production Standards",
+        html: "<ul><li><strong>Production Bottleneck:</strong> 3D modeling takes hours to days per asset in Blender/Maya.</li><li><strong>The Raw AI Problem:</strong> Models from direct Text-to-3D algorithms contain up to 300,000+ polygons, inverted face normals, and non-manifold holes.</li><li><strong>The PolyGen Solution:</strong> End-to-end orchestration that enriches user prompts, heals geometry, and reduces poly counts by <strong>85%</strong>.</li></ul>"
+      },
+      {
+        title: "Core Architectural Innovations (Our Edge)",
+        subtitle: "Key Technical Novelties Implemented in Sprint 1",
+        html: "<ul><li><strong>1. LLM 3D Art Director:</strong> Translates short prompts into structural 3D specs with manifold constraints and PBR surface parameters.</li><li><strong>2. Automated Geometric Sanitizer:</strong> Normalizes inverted normals and repairs holes to ensure 100% watertight assets.</li><li><strong>3. Edge-Collapse Decimation:</strong> Generates 3 production Levels of Detail (LOD 0, LOD 1, LOD 2).</li></ul>"
+      },
+      {
+        title: "Empirical Benchmark Results",
+        subtitle: "Quantitative Evaluation Across 5 Diverse Production Categories",
+        html: "<table><tr><th>Asset</th><th>LOD 0</th><th>LOD 1</th><th>LOD 2</th><th>Optimization</th><th>Watertight</th></tr><tr><td>Cyberpunk Katana</td><td>5,120</td><td>2,048</td><td>768</td><td><span class='badge'>85.0%</span></td><td>True</td></tr><tr><td>Medieval Throne</td><td>5,120</td><td>2,048</td><td>768</td><td><span class='badge'>85.0%</span></td><td>True</td></tr><tr><td>Sci-Fi Visor</td><td>5,120</td><td>2,048</td><td>768</td><td><span class='badge'>85.0%</span></td><td>True</td></tr><tr><td>Low-Poly Bonsai</td><td>5,120</td><td>2,048</td><td>768</td><td><span class='badge'>85.0%</span></td><td>True</td></tr><tr><td>Thruster Turbine</td><td>5,120</td><td>2,048</td><td>768</td><td><span class='badge'>85.0%</span></td><td>True</td></tr></table>"
+      },
+      {
+        title: "Interactive Web Demonstration",
+        subtitle: "Live Gradio 3D Web Application",
+        html: "<p>The system features an interactive WebGL interface allowing reviewers to:</p><ul><li>Enter natural language queries live.</li><li>Select style presets and target Levels of Detail.</li><li>Inspect the sanitized 3D asset with 360° orbit, zoom, and wireframe views.</li></ul><p><em>Execute via:</em> <code>python src/ui/app.py</code></p>"
+      }
+    ];
+
+    let current = 0;
+    function render() {
+      document.getElementById('slide-content').innerHTML = `<h1>${slides[current].title}</h1><h2>${slides[current].subtitle}</h2>${slides[current].html}`;
+      document.getElementById('slide-num').innerText = `Slide ${current + 1} of ${slides.length}`;
+    }
+    function nextSlide() { if(current < slides.length - 1) { current++; render(); } }
+    function prevSlide() { if(current > 0) { current--; render(); } }
+    render();
+  </script>
+</body>
+</html>
